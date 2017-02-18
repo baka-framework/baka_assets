@@ -33,11 +33,22 @@ LOG = logging.getLogger(__name__)
 
 def includeme(config):
     """pyramid include. declare the add_thumb_view"""
-    here = os.path.dirname(__file__)
+    here = 'baka'
     settings = config.registry.settings
 
-    config_dir = settings.get('baka_assets.config', '{}/configs'.format(here))
-    asset_dir = settings.get('baka_assets.assets', '{}/assets'.format(here))
+    config_dir = settings.get('baka_assets.config', '{}:configs'.format(here))
+    asset_dir = settings.get('baka_assets.assets', '{}:assets'.format(here))
+
+    isabs_config = os.path.isabs(config_dir)
+    if (not isabs_config) and (':' in config_dir):
+        pkg, relto = config_dir.split(':')
+        config_dir = AssetResolver(pkg).resolve(relto).abspath()
+
+    isabs_asset = os.path.isabs(asset_dir)
+    if (not isabs_asset) and (':' in asset_dir):
+        pkg, relto = asset_dir.split(':')
+        asset_dir = AssetResolver(pkg).resolve(relto).abspath()
+
     # asset_dir = AssetResolver(None).resolve(asset_dir).abspath()
 
     env = Environment(
@@ -58,7 +69,7 @@ def includeme(config):
         if path.exists(fname):
             return open(fname, mode)
         else:
-            return AssetResolver().resolve(fname).abspath()
+            return open(AssetResolver().resolve(fname).abspath(), mode)
 
     LOG.debug(AssetResolver().resolve(
         '/'.join([
