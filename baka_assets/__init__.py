@@ -21,6 +21,7 @@ import fileinput
 import logging
 from os import path
 import os
+from pyramid.path import AssetResolver
 
 from pyramid.settings import asbool
 import six
@@ -57,7 +58,12 @@ def includeme(config):
         if path.exists(fname):
             return open(fname, mode)
         else:
-            return env.resolver.resolver.resolve(fname).stream()
+            return AssetResolver().resolve(fname)
+
+    LOG.debug(AssetResolver().resolve(
+        '/'.join([
+            config_dir,
+            settings.get('baka_assets.bundles', 'assets.yaml')])))
 
     fin = fileinput.input('/'.join([
         config_dir,
