@@ -25,8 +25,8 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/baka_assets/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45137158">
-              <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.30174562">
+              <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
               <folding>
                 <element signature="e#816#846#0" expanded="true" />
               </folding>
@@ -61,7 +61,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
+    <option name="x" value="1305" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="733" />
@@ -332,7 +332,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1280" height="733" extended-state="6" />
+    <frame x="1305" y="23" width="1280" height="733" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -420,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/baka_assets/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45137158">
-          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.30174562">
+          <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
           <folding>
             <element signature="e#816#846#0" expanded="true" />
           </folding>

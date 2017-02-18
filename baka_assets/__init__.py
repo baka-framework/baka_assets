@@ -58,12 +58,12 @@ def includeme(config):
         if path.exists(fname):
             return open(fname, mode)
         else:
-            return AssetResolver().resolve(fname)
+            return AssetResolver().resolve(fname).abspath()
 
     LOG.debug(AssetResolver().resolve(
         '/'.join([
             config_dir,
-            settings.get('baka_assets.bundles', 'assets.yaml')])))
+            settings.get('baka_assets.bundles', 'assets.yaml')])).abspath())
 
     fin = fileinput.input('/'.join([
         config_dir,
