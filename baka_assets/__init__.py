@@ -16,19 +16,75 @@
  # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  #  __init__.py
 """
+
 from contextlib import closing
 import fileinput
 import logging
 from os import path
 import os
-from pyramid.path import AssetResolver
 
+from pyramid.path import AssetResolver
 from pyramid.settings import asbool
 import six
-from webassets import Environment, Bundle
+from webassets.env import Environment, Resolver
+from webassets import Bundle
+from webassets.exceptions import BundleError
 from webassets.loaders import YAMLLoader
 
 LOG = logging.getLogger(__name__)
+
+
+# fork from https://github.com/sontek/pyramid_webassets/blob/master/pyramid_webassets/__init__.py
+class PyramidResolver(Resolver):
+    def __init__(self):
+        super(PyramidResolver, self).__init__()
+        self.resolver = AssetResolver(None)
+
+    def _split_spec(self, item):
+        if ':' in item:
+            package, subpath = item.split(':', 1)
+            return package, subpath
+        else:
+            return None, item
+
+    def _resolve_spec(self, spec):
+        package, subpath = self._split_spec(spec)
+
+        try:
+            pkgpath = self.resolver.resolve(package + ':').abspath()
+        except ImportError as e:
+            raise BundleError(e)
+        else:
+            return path.join(pkgpath, subpath)
+
+    def search_for_source(self, ctx, item):
+        package, subpath = self._split_spec(item)
+        if package is None:
+            return super(PyramidResolver, self).search_for_source(
+                ctx,
+                item
+            )
+        else:
+            pkgpath = self._resolve_spec(package + ':')
+            return self.consider_single_directory(pkgpath, subpath)
+
+    def resolve_output_to_path(self, ctx, target, bundle):
+        package, filepath = self._split_spec(target)
+        if package is not None:
+            pkgpath = self._resolve_spec(package + ':')
+            target = path.join(pkgpath, filepath)
+
+        return super(PyramidResolver, self).resolve_output_to_path(
+            ctx,
+            target,
+            bundle
+        )
+
+
+class Environment(Environment):
+    @property
+    def resolver_class(self):
+        return PyramidResolver
 
 
 def includeme(config):
