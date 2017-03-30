@@ -107,7 +107,7 @@ requires = [
     ]
 
 setup(name='baka_assets',
-      version='0.3.5',
+      version='0.3.6',
       description='baka_assets',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
