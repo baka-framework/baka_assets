@@ -1,0 +1,11 @@
+{
+  "name": "ryouma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://kubuskotak@bitbucket.org/boolein/baka_assets.git",
+  "author": "Nanang Suryadi <nanang.jobs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "uglifyjs": "^2.4.10"
+  }
+}

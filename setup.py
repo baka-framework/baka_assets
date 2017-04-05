@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 baka_assets for baka framework or pyramid
------------------------------------
-
-.. image:: https://travis-ci.org/suryakencana/webassets-webpack.svg?branch=master
-    :target: https://travis-ci.org/suryakencana/webassets-webpack
+------------------------------------------
 
 
 Management assets for baka framework and Pyramid using
 `webassets <http://webassets.readthedocs.org>`_.
+
 
 Basic usage
 ```````````
@@ -28,7 +26,7 @@ Basic usage
 
 in assets.yaml
 
-.. code:: yaml
+.. code::
 
     css-vendor:
         filters: scss,cssmin
@@ -76,7 +74,7 @@ in development.ini
 Usage in mako template
 ```````````````````````
 
-.. code:: html
+.. code::
     % for url in request.web_env['js-vendor'].urls():
       <script src="${request.static_url(url)}" />
     % endfor

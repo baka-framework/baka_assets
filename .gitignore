@@ -138,3 +138,5 @@ env*
 .idea
 _setup.py
 /.idea/
+/node_modules/
+/example/assets/.webassets-manifest

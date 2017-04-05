@@ -54,6 +54,8 @@ js-vendor:
 ```
 
 
+
+
 ##### setup to config
 
 in python code
@@ -92,3 +94,14 @@ in development.ini
                 depends='js/**/*.js')
 
 ```
+
+
+##### Example
+
+
+```
+   yarn init or npm init
+   yarn or npm install
+   python -m example      
+```
+

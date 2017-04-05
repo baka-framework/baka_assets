@@ -1,0 +1,18 @@
+css-vendor:
+    filters: scss,cssmin
+    depends: '**/*.scss'
+    output: example:public/vendor.%(version)s.css
+    contents: styles/app.scss
+
+
+js-vendor:
+    config:
+      UGLIFYJS_BIN: ./node_modules/.bin/uglifyjs
+    filters: uglifyjs
+    output: example:public/vendor.%(version)s.js
+    contents:
+      - javascripts/pace.js
+      - javascripts/moment-with-locales.js
+      - javascripts/jquery.js
+      - javascripts/lodash.js
+      - javascripts/materialize.js
