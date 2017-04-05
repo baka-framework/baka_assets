@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 baka_assets for baka framework or pyramid
---------------------------------------------
+-----------------------------------
+
+.. image:: https://travis-ci.org/suryakencana/webassets-webpack.svg?branch=master
+    :target: https://travis-ci.org/suryakencana/webassets-webpack
+
 
 Management assets for baka framework and Pyramid using
 `webassets <http://webassets.readthedocs.org>`_.
 
-
 Basic usage
 ```````````
 
-in development.ini
-
-.. code::
+.. code:: python
 
     baka_assets.config = {your_root_package_or_egg}:configs
     baka_assets.assets = {your_root_package_or_egg}:assets
@@ -87,47 +88,35 @@ Usage in mako template
                 depends='js/**/*.js')
 
 """
-import os
-
 from setuptools import setup, find_packages
 
-here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here, 'README.md')) as f:
-    README = f.read()
-with open(os.path.join(here, 'CHANGES.md')) as f:
-    CHANGES = f.read()
-
-requires = [
-    'pyramid',
-    'webassets',
-    'six',
-    'PyYAML',
-    'pyScss',
-    'PyExecJS',
-    'jsmin',
-    'cssmin'
-    ]
 
 setup(name='baka_assets',
-      version='0.3.6.dev1',
-      description='baka_assets',
+      version='0.3.6.dev2',
+      description='Assets for Baka and Pyramid',
       long_description=__doc__,
-      classifiers=[
-        "Programming Language :: Python",
-        "Framework :: Pyramid",
-        "Topic :: Internet :: WWW/HTTP",
-        "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
-        ],
-      author='',
-      author_email='',
-      url='',
-      keywords='web pyramid baka_assets',
+      author='Nanang Suryadi',
+      license='MIT',
+      author_email='nanang.jobs@gmail.com',
+      url='https://github.com/baka-framework/baka_assets',
       packages=find_packages(),
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=requires,
-      tests_require=requires,
-      test_suite="baka_assets",
-      entry_points="""\
-      """,
-      )
+      keywords=['webpack', 'webassets', 'baka assets', 'pyramid assets'],
+      install_requires=['pyramid',
+                        'webassets',
+                        'six',
+                        'PyYAML',
+                        'pyScss',
+                        'PyExecJS',
+                        'jsmin',
+                        'cssmin'],
+      test_suite='',
+      classifiers=[
+          'Development Status :: 5 - Production/Stable',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6'
+      ])

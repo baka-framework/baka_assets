@@ -136,3 +136,5 @@ env*
 # Rope project settings
 .ropeproject
 .idea
+_setup.py
+/.idea/
