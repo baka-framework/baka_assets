@@ -39,7 +39,7 @@ def includeme(config):
 
     _ext = settings.get('baka_assets.ext', '.html')
 
-    if settings.get('baka_assets.plim', False):
+    if bool(settings.get('baka_assets.plim', False)):
         LOG.debug(settings.get('baka_assets.plim'))
         config.include('plim.adapters.pyramid_renderer')
         config.add_plim_renderer(_ext)
