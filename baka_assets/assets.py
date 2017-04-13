@@ -24,6 +24,7 @@
 """
 import logging
 import time
+from pyramid.settings import asbool
 
 from pyramid.static import QueryStringConstantCacheBuster
 
@@ -39,7 +40,7 @@ def includeme(config):
 
     _ext = settings.get('baka_assets.ext', '.html')
 
-    if bool(settings.get('baka_assets.plim', False)):
+    if asbool(settings.get('baka_assets.plim', False)):
         LOG.debug(settings.get('baka_assets.plim'))
         config.include('plim.adapters.pyramid_renderer')
         config.add_plim_renderer(_ext)

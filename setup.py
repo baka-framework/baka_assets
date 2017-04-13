@@ -90,7 +90,7 @@ from setuptools import setup, find_packages
 
 
 setup(name='baka_assets',
-      version='0.3.8.dev0',
+      version='0.3.8.dev1',
       description='Assets for Baka and Pyramid',
       long_description=__doc__,
       author='Nanang Suryadi',
