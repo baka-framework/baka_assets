@@ -89,8 +89,11 @@ class Environment(Environment):
 
 def includeme(config):
     """pyramid include. declare the add_thumb_view"""
-    here = 'baka'
     settings = config.registry.settings
+    here = settings.get('baka.egg', 'baka')
+    settings = config.registry.settings
+
+    config.include('.assets')
 
     config_dir = settings.get('baka_assets.config', '{}:configs'.format(here))
     asset_dir = settings.get('baka_assets.assets', '{}:assets'.format(here))

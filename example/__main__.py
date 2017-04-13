@@ -38,10 +38,10 @@ def includeme(config):
     config.include('baka_assets')
     # mako template
     config.include('pyramid_mako')
-    config.add_mako_renderer('.html')
-    config.add_static_view(settings.get('static_assets', 'static'),
-                           '{egg}:public'.format(egg='example'),
-                           cache_max_age=3600)
+    # config.add_mako_renderer('.html')
+    # config.add_static_view(settings.get('static_assets', 'static'),
+    #                        '{egg}:public'.format(egg='example'),
+    #                        cache_max_age=3600)
 
     config.add_route('home', '/')
     config.scan()
@@ -59,6 +59,9 @@ def route_home(request):
 
 if __name__ == '__main__':
     settings = {
+        'baka.egg': 'example',
+        'baka_assets.ext': '.html',
+        'baka_assets.plim': False,
         'baka_assets.config': '{egg}:configs'.format(egg='example'),
         'baka_assets.assets': '{egg}:assets'.format(egg='example'),
         'baka_assets.bundles': 'assets.yaml',
