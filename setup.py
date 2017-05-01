@@ -90,7 +90,7 @@ from setuptools import setup, find_packages
 
 
 setup(name='baka_assets',
-      version='0.3.9',
+      version='0.3.9.1',
       description='Assets for Baka and Pyramid',
       long_description=__doc__,
       author='Nanang Suryadi',
@@ -106,7 +106,8 @@ setup(name='baka_assets',
                         'pyScss',
                         'PyExecJS',
                         'jsmin',
-                        'cssmin'],
+                        'cssmin',
+                        'plim'],
       test_suite='',
       classifiers=[
           'Development Status :: 5 - Production/Stable',
